@@ -1,0 +1,26 @@
+name: Обновление матчей
+on:
+  schedule:
+    - cron: "0 4 * * *"
+    - cron: "5 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Скачать данные
+        run: python scripts/update_matches.py ${{ github.event.schedule == '5 * * * *' && 'hourly' || 'full' }}
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+      - name: Сохранить изменения
+        run: |
+          git config user.name "shark-bot"
+          git config user.email "bot@shark.ru"
+          git add data/matches.js data/state.json data/details.js data/details.json data/teams.json data/usage.json
+          git diff --cached --quiet || (git commit -m "Обновление матчей" && git push)

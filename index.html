@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>🦈shark.ru</title>
+<meta name="description" content="Календарь футбольных матчей: РПЛ, Премьер-лига, Серия A и кубки. Время московское, избранное и личные прогнозы.">
+<meta name="theme-color" content="#06141d">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="🦈shark.ru">
+<meta property="og:description" content="Календарь футбольных матчей: РПЛ, Премьер-лига, Серия A и кубки.">
+<meta property="og:image" content="https://shark.ru/assets/avatar.jpg">
+<meta property="og:url" content="https://shark.ru/">
+<link rel="canonical" href="https://shark.ru/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">
+      <img class="av" src="assets/avatar-small.jpg" alt="Акула shark.ru" width="40" height="40">
+      <div>🦈shark.ru<br><small>футбольные матчи</small></div>
+    </div>
+    <a class="tg" href="https://t.me/sharkruu" target="_blank" rel="noopener" aria-label="Наш Telegram"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.5 3.3 2.9 10.5c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.2-.5-1.8-1.4-1.4ZM8.3 13l9.7-6.1c.5-.3.9-.1.5.2L10.4 14.4l-.3 3.6L8.3 13Z"/></svg><span>Telegram</span></a>
+  </header>
+
+  <section class="intro">
+    <h1>Ближайшие матчи. <em>Без лишнего шума.</em></h1>
+    <p>Календарь РПЛ, АПЛ и кубков. Время московское. Ставь звезду на матч, который не хочешь пропустить, и отмечай свой прогноз.</p>
+  </section>
+
+  <div class="strip" id="strip" role="group" aria-label="Дата"></div>
+
+  <div class="tools">
+    <div class="chips" id="chips" role="group" aria-label="Лиги"></div>
+    <input class="search" id="q" type="search" placeholder="Найти команду" aria-label="Найти команду">
+  </div>
+
+  <div class="meta"><span id="count"></span><span id="mine"></span></div>
+  <div id="list"></div>
+
+  <section class="tgcard" aria-label="Telegram">
+    <img src="assets/avatar.jpg" alt="Акула с телефоном, логотип shark.ru" width="140" height="140">
+    <div>
+      <h2>shark.ru в Telegram</h2>
+      <p>Анонсы матчей и новости сайта в нашем канале.</p>
+      <a class="tg" href="https://t.me/sharkruu" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21.5 3.3 2.9 10.5c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.2-.5-1.8-1.4-1.4ZM8.3 13l9.7-6.1c.5-.3.9-.1.5.2L10.4 14.4l-.3 3.6L8.3 13Z"/></svg><span>Открыть t.me/sharkruu</span></a>
+    </div>
+  </section>
+
+  <p class="foot">Расписание собрано из открытых источников: <a href="https://sport24.ru/football/news-874675-rpl-opublikovala-raspisaniye-matchey-do-kontsa-goda" target="_blank" rel="noopener">Sport24 (РПЛ)</a>, <a href="https://insights.betfred.com/football/fixtures/28-10-2026/" target="_blank" rel="noopener">Betfred Insights</a>, <a href="https://www.sport-flash.com/sports/football/uk/calendar/2026-10-31" target="_blank" rel="noopener">Sport Flash</a>. Время зарубежных матчей переведено из британского (GMT) в московское. Даты и время могут измениться, смотрите сайты лиг и клубов. Счёт и коэффициенты здесь не показываются. Прогнозы хранятся только в вашем браузере, деньги и ставки не используются. Весь контент для лиц 18+.</p>
+</div>
+<div class="modal" id="modal" hidden><div class="modal-box" id="modal-box" role="dialog" aria-modal="true" aria-label="Подробности матча"></div></div>
+<script src="data/matches.js"></script>
+<script src="data/details.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
